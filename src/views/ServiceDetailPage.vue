@@ -3,7 +3,7 @@
     <div id="services-page">
         <div v-for="serviceDetailContent in serviceDetailContents" v-bind:key="serviceDetailContent.id">
             <vue-headful
-                    :title="serviceDetailContent['meta'][0]['title'] + ' | A2A Digital'"
+                    :title="serviceDetailContent['meta'][0]['title'] + '| Service | A2A Digital'"
                     :description="serviceDetailContent['meta'][0]['description']"
                     :keywords="serviceDetailContent['meta'][0]['keywords']"
             />
