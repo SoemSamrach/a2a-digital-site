@@ -1,9 +1,9 @@
 module.exports = {
-    pwa: {
-        workboxOptions: {
-            skipWaiting: true
-        }
-    },
+    // pwa: {
+    //     workboxOptions: {
+    //         skipWaiting: true
+    //     }
+    // },
 
     pluginOptions: {
         prerenderSpa: {
