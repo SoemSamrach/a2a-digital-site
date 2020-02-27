@@ -51,5 +51,3 @@ new Vue({
   mounted: () => document.dispatchEvent(new Event("x-app-rendered")),
 }).$mount('#app')
 
-window.router = router
-
