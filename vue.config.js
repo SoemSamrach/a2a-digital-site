@@ -28,8 +28,7 @@ module.exports = {
             '/solutiondetail/ls',
             '/solutiondetail/contactcenter',
             '/solutiondetail/qrcode',
-            '/solutiondetail/sms',
-            '/',
+            '/solutiondetail/sms'
           ],
           useRenderEvent: true,
           headless: true,
