@@ -9,7 +9,6 @@ module.exports = {
         prerenderSpa: {
           registry: undefined,
           renderRoutes: [
-            '/',
             '/about',
             '/contact',
             '/servicedetail/ai',
@@ -29,7 +28,8 @@ module.exports = {
             '/solutiondetail/ls',
             '/solutiondetail/contactcenter',
             '/solutiondetail/qrcode',
-            '/solutiondetail/sms'
+            '/solutiondetail/sms',
+            '/',
           ],
           useRenderEvent: true,
           headless: true,
