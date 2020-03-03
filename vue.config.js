@@ -23,6 +23,7 @@ module.exports = {
             '/servicedetail/rpa',
             '/servicedetail/cybersecurity',
             '/servicedetail/security',
+            '/solutiondetail/security',
             '/solutiondetail/hrm',
             '/solutiondetail/mapping',
             '/solutiondetail/kpi',
