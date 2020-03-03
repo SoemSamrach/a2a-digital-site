@@ -6,6 +6,7 @@
                     :title="serviceDetailContent['meta'][0]['title'] + ' | Service | A2A Digital'"
                     :description="serviceDetailContent['meta'][0]['description']"
                     :keywords="serviceDetailContent['meta'][0]['keywords']"
+                    :image="'https://a2a-digital.com/assets/head/services/' + route + '.png'"
             />
             <tagline-hero
                     :title="serviceDetailContent['header'][0]['title']"
