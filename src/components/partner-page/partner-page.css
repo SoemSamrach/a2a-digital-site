@@ -15,19 +15,12 @@
   font-weight: bold;
 }
 
-.l_groupPartners {
-  display: grid;
-  grid-template-columns: repeat(2,1fr);
-}
-
-
 .l_groupPartners > img {
   width: 75%;
   height: 80px;
   padding-left: 15%;
   padding-top: 30px;
 }
-
 
 @media screen and (max-width:600px) {
   .l_groupPartners {
@@ -37,10 +30,5 @@
 
   .l_last__logo {
     padding-left: 0px;
-  }
-
-  .l_groupPartners > img {
-    padding-left: 60px;
-    padding-top: 50px;
   }
 }
