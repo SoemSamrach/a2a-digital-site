@@ -2,6 +2,10 @@
     width: 100%;
 }
 
+.text-danger {
+    color: red;
+}
+
 .c_sevice_form_caption{
     margin-bottom: 50px;
 }
