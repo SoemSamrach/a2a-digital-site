@@ -32,7 +32,6 @@ module.exports = {
             '/solutiondetail/sms'
           ],
           useRenderEvent: true,
-          headless: false,
           onlyProduction: true,
           postProcess: route => {
             // Defer scripts and tell Vue it's been server rendered to trigger hydration
