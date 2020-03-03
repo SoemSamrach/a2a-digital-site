@@ -48,12 +48,6 @@ export default new Router({
             component: () => import(/* webpackChunkName: "ServiceDetail" */ '@/views/ServiceDetailPage.vue')
         },
         {
-            path: '/profile',
-            name: 'profile',
-            component: () => import(/* webpackChunkName: "Profile" */ '@/views/ProfilePage.vue')
-        },
-
-        {
             path: '/success',
             name: 'success',
             component: () => import(/* webpackChunkName: "SuccessSendMail" */ '@/views/SuccessfulPage.vue')
@@ -63,7 +57,6 @@ export default new Router({
             name: '404',
             component: () => import(/* webpackChunkName: "Error" */ '@/views/ErrorPage.vue')
         },
-
     ],
     scrollBehavior() {
         window.scrollTo(0, 0);
