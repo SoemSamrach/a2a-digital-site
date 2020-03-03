@@ -54,7 +54,7 @@
 }
 
 #slide_service, #slide_product {
-    cursor: pointer !important;
+    cursor: default !important;
 }
 
 .c_logo {
@@ -277,10 +277,6 @@
 
 .bm_primary_scroller:hover {
     background-color: #138690;
-    color: #ffffff;
-}
-
-.bm_primary_scroller:hover .scroller_text {
     color: #ffffff;
 }
 
