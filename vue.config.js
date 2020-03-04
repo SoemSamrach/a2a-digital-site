@@ -9,7 +9,6 @@ module.exports = {
         prerenderSpa: {
           registry: undefined,
           renderRoutes: [
-            '/',
             '/about',
             '/contact',
             '/servicedetail/ai',
