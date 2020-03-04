@@ -54,7 +54,7 @@
 }
 
 #slide_service, #slide_product {
-    cursor: default !important;
+    cursor: pointer !important;
 }
 
 .c_logo {
