@@ -25,7 +25,7 @@
         data() {
             return {
                 title: 'About',
-                description: 'A2A digital is the best company that supports and provides solutions for Cambodia companies to catch up industry revolution 4.0 in the IT field.',
+                description: 'A2A digital is the best company that supports and provides solutions for Cambodia companies to catch up industry 4.0 in the IT field.',
                 keywords: 'cambodia, a2a digital, web development, technology, IT solution, web design, solutions'
             }
         }
