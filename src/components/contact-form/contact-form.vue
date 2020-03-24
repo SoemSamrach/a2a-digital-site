@@ -26,7 +26,7 @@ export default {
         submitForm() {
             this.formSubmitted = true
             let currentObj = this;
-            this.axios.post('https://fierce-escarpment-31981.herokuapp.com/send-email', {
+            this.axios.post('https://a2a-digital-backend.herokuapp.com/api/send-email', {
                 name: this.name,
                 email: this.email,
                 feedback: this.feedback,
