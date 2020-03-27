@@ -1,8 +1,7 @@
 <style src="../styles/service-detail.css" scoped></style>
 <template>
     <div id="services-page">
-        <!-- {{serviceDetailContents['data']['item']}} -->
-        <div v-for="serviceDetailContent in serviceDetailContents['data']['item']" v-bind:key="serviceDetailContent.id">
+        <div v-for="serviceDetailContent in serviceDetailContents" v-bind:key="serviceDetailContent.id">
             <vue-headful
                     :title="serviceDetailContent['meta'][0]['title'] + ' | Service | A2A Digital'"
                     :description="serviceDetailContent['meta'][0]['description']"
@@ -42,10 +41,8 @@
     import ServiceContactForm from '../components/service-contact-form/service-contact-form.vue'
     import ServiceComapareComp from '../components/service-cloud-detail-page/service-cloud-detail-page.vue'
     import ServiceManagement from '../components/service-management/service-management'
-    import axios from 'axios'
-    // import {mapGetters, mapActions} from 'vuex'
+    import {mapGetters, mapActions} from 'vuex'
     import TaglineHero from "../components/tagline-hero/tagline-hero";
-
     export default {
         name: 'ServiceDetailPage',
         components: {
@@ -62,24 +59,35 @@
         data: function () {
             return {
                 service: String,
-                serviceDetailContents: null,
-                route : this.$route.params.service,
+                type: "service/service-content-",
+                data : null,
+                route : this.$route.params.service 
             }
+        },
+        computed: {
+            ...mapGetters({
+                //content server
+                serviceDetailContents: 'serviceDetailContent/content'
+            }),
+        },
+        mounted: function () {
+            this.actionDetailLoadContent(this.service)
         },
         watch: {
             '$route.params.service': function (service) {
                 this.route = this.$route.params.service 
-                this.service = service
-                axios
-                    .get('https://a2a-digital-backend.herokuapp.com/api/service/'+this.service)
-                    .then(response => (this.serviceDetailContents = response))
+                this.service = this.type + service
+                this.actionDetailLoadContent(this.service)
             }
         },
-
-        mounted() {
-            axios
-                .get('https://a2a-digital-backend.herokuapp.com/api/service/'+this.route)
-                .then(response => (this.serviceDetailContents = response))
+    
+        methods: {
+            ...mapActions({
+                actionDetailLoadContent: 'serviceDetailContent/load'
+            }),
+        },
+        created() {
+            this.service = this.type + this.$route.params.service 
         },
     }
 </script>

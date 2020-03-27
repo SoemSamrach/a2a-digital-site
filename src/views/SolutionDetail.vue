@@ -1,7 +1,7 @@
 <style src="../styles/solution-detail.css" scoped></style>
 <template>
     <div id="solution-detail">
-        <div v-for="solutionDetailContent in solutionDetailContents" v-bind:key="solutionDetailContent.id">
+        <div v-for="solutionDetailContent in SolutionDetailContents" v-bind:key="solutionDetailContent.id">
             <vue-headful
                     :title="solutionDetailContent['meta'][0]['title'] + ' | Solution | A2A Digital'"
                     :description="solutionDetailContent['meta'][0]['description']"
@@ -23,13 +23,11 @@
 </template>
 
 <script>
-
     import SolutionDetailHeader from '../components/solutions-detail/SolutionDetail.vue'
     import SolutionDetailCard from '../components/solutions-card/SolutionCard.vue'
     import Cardproduct from '../components/card-product/card-product.vue'
+    import {mapGetters, mapActions} from 'vuex'
     import TaglineHero from "../components/tagline-hero/tagline-hero";
-    import axios from 'axios'
-
     export default {
         name: 'SolutionDetail',
         components: {
@@ -43,24 +41,33 @@
                 solutionTitle:"Other Solutions",
                 solution: String,
                 type: "solution/solution-content-",
-                route: this.$route.params.solution,
-                solutionDetailContents : null
+                route: String
             }
         },
-
+        computed: {
+            ...mapGetters({
+                //content server
+                SolutionDetailContents: 'serviceDetailContent/content'
+            }),
+        },
+        mounted: function () {
+            this.actionDetailLoadContent(this.solution)
+        },
         watch: {
             '$route.params.solution': function (solution) {
                 this.route = this.$route.params.solution 
-                axios
-                    .get('https://a2a-digital-backend.herokuapp.com/api/solution/'+solution)
-                    .then(response => (this.solutionDetailContents = response['data']['item']))
+                this.solution = this.type + solution
+                this.actionDetailLoadContent(this.solution)
             }
         },
-
-        mounted() {
-            axios
-                .get('https://a2a-digital-backend.herokuapp.com/api/solution/'+this.route)
-                .then(response => (this.solutionDetailContents = response['data']['item']))
+        methods: {
+            ...mapActions({
+                actionDetailLoadContent: 'serviceDetailContent/load'
+            }),
         },
+        created() {
+            this.solution = this.type + this.$route.params.solution;
+            this.route = this.$route.params.solution;
+        }
     }
 </script>
