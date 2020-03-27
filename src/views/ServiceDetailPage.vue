@@ -66,10 +66,14 @@
                 route : this.$route.params.service,
             }
         },
-        mounted(){
-            axios
-            .get('http://a2a-digital-backend.herokuapp.com/api/service/'+this.route)
-            .then(response => (this.serviceDetailContents = response))
+        watch: {
+            '$route.params.service': function (service) {
+                this.route = this.$route.params.service 
+                this.service = service
+                 axios
+                    .get('http://a2a-digital-backend.herokuapp.com/api/service/'+this.service)
+                    .then(response => (this.serviceDetailContents = response))
+            }
         },
         created() {
              axios
