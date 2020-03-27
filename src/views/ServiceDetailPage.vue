@@ -71,14 +71,14 @@
                 this.route = this.$route.params.service 
                 this.service = service
                 axios
-                    .get('http://a2a-digital-backend.herokuapp.com/api/service/'+this.service)
+                    .get('https://a2a-digital-backend.herokuapp.com/api/service/'+this.service)
                     .then(response => (this.serviceDetailContents = response))
             }
         },
-        
+
         mounted() {
             axios
-                .get('http://a2a-digital-backend.herokuapp.com/api/service/'+this.route)
+                .get('https://a2a-digital-backend.herokuapp.com/api/service/'+this.route)
                 .then(response => (this.serviceDetailContents = response))
         },
     }
